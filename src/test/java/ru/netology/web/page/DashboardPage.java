@@ -1,22 +1,20 @@
-package ru.netology.web.Page;
+package ru.netology.web.page;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import org.junit.jupiter.api.BeforeEach;
 import ru.netology.web.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-import static java.nio.channels.Selector.open;
 
 public class DashboardPage {
     private final String balanceStart = "баланс: ";
     private final String balanceFinish = " р.";
-    private final SelenideElement header = $("[data-test-id=dashboard]");
-    private final ElementsCollection cards = $$(".list__item div");
+    private final SelenideElement header = Selenide.$("[data-test-id=dashboard]");
+    private final ElementsCollection cards = Selenide.$$(".list__item div");
     public DashboardPage() {
         header.shouldBe(visible);
     }
